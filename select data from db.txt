@@ -1,0 +1,23 @@
+var conn = mysql.createConnection({
+  host:'localhost',
+  user:'sahar',
+  password:'sahar123',
+  database:'database_node1'
+});
+
+conn.connect(function(err){
+  if(err){
+    throw err;
+  }
+
+  console.log('connected :)');
+});
+
+var sql = "select * from users";
+//var sql = "insert into users(username,email,age)values('sahar10','sahar@gmail.com',25);";
+conn.query(sql, function (err, result){
+  if(err){
+    throw err;
+  }
+  console.log(result);
+});
